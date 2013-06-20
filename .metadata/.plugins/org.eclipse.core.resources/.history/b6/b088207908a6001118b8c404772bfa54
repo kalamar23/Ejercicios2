@@ -1,0 +1,33 @@
+import java.util.LinkedList;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Cola {
+
+public Cola(){
+	
+	
+	
+}
+	
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	
+	public void ingre(){
+		
+		LinkedList<Integer> list = new LinkedList<Integer>();
+		
+		System.out.println("Ingrese la cantidad :");
+	
+		
+		
+	}
+	
+	
+	
+	
+	public static void main(String[] args) {
+		
+
+	}
+
+}

@@ -1,0 +1,27 @@
+
+public class Recursivo {
+
+// Par e impar recursivo
+	
+	public boolean par(int n){
+		
+		if(n == 0) return true;
+		else
+			return impar(n);
+	}
+	
+	
+	public boolean impar(int n){
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+}

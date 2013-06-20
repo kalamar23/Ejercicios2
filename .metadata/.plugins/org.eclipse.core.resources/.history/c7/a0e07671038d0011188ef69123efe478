@@ -1,0 +1,56 @@
+import java.io.*;
+public class Recursivo {
+
+// Par e impar recursivo
+	
+	public boolean par(int n){
+		
+		if(n == 0) return true;
+		else
+			return impar(n - 1);
+	}
+
+	
+	public boolean impar(int n){
+		
+		if(n == 0) return false;
+		else
+		return par(n - 1);
+	}
+	
+//	30 y 5
+	public int division (int a, int b)
+    {
+	if(b > a) return 0;
+	else
+	    return division(a-b, b) + 1;
+    }	
+	
+public void suma(int num){
+	
+	
+}
+	
+	
+	
+	
+	
+	
+	public static void main(String[] args) throws IOException {
+		
+		Recursivo re = new Recursivo();
+		
+// numero es impar 
+	
+	//	System.out.println(re.impar(5));
+		
+	//	System.out.println((re.impar(5)) ? "El numero es impar" : "El numero es par");
+		
+		System.out.println(re.division(30, 5));
+		
+		
+		
+	}
+	
+	
+}

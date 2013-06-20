@@ -1,0 +1,39 @@
+
+public class Recursivo4 {
+	
+	static int minimum(int[] ar, int index) {
+		if(index == ar.length-1)return -1;
+		else 
+		{
+		int i = minimum(ar, ++index);
+		if(i < 0)return ar[index];
+		else if(ar[index] < i)return ar[index];
+		else return i;
+		
+		} 
+		}
+	
+	
+
+	
+static public void main(String[] args) {
+int[] arre = new int[]{2, 14, 10};
+System.out.println(minimum(arre, 0));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+}

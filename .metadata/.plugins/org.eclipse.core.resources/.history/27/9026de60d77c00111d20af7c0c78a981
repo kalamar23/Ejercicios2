@@ -1,0 +1,122 @@
+//gerando una barra de progreso que muestra el avance de copiado de un archivo
+
+import javax.swing.*;
+import java.awt.*;
+import java.io.*;
+
+public class Barra2 {
+
+	public static void main(String[] args) {
+		final int MAX = 100;
+		final JFrame frame = new JFrame("Copia archivos");
+		final String nom = "/home/kala/Escritorio/copiar.rar";
+		File archi = new File(nom);
+		// crear barra
+		final JProgressBar pb = new JProgressBar();
+
+		pb.setMinimum(0);
+		pb.setMaximum(MAX);
+		pb.setForeground(Color.RED);
+		pb.setStringPainted(true);
+
+		// agregar barra
+		frame.setLayout(new FlowLayout());
+		frame.getContentPane().add(pb);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(400, 300);
+		frame.setVisible(true);
+
+		// avance
+		
+		private int currentValue;
+
+
+
+	    public void run() {
+
+	      BufferedInputStream in = null;
+
+	      BufferedOutputStream out = null;
+
+	      try {
+
+	        // Create file input stream
+	        File inFile = new File(jtfFrom.getText().trim());
+
+	        in = new BufferedInputStream(new FileInputStream(inFile));
+
+
+
+	        // Create file output stream
+	        File outFile = new File(jtfTo.getText());
+
+	        out = new BufferedOutputStream(new FileOutputStream(outFile));
+
+
+
+	        // Get total bytes in the file
+	        long totalBytes = in.available();
+
+
+
+	        // Start progress meter bar
+	        pb.setValue(0);
+
+	        pb.setMaximum(100);
+
+
+
+	        int r;
+
+	        long bytesRead = 0;
+
+	        // You may increase buffer size to improve IO speed
+	        byte[] b = new byte[10];
+
+	        while ((r = in.read(b, 0, b.length)) != -1) {
+
+	          out.write(b, 0, r);
+
+	          bytesRead += r;
+
+	          currentValue = (int)(bytesRead * 100 / totalBytes);
+
+
+
+	          // Update the progress bar
+	          pb.setValue(currentValue);
+
+	        }
+
+	      }
+
+	      catch (FileNotFoundException ex) {
+
+	        ex.printStackTrace();
+
+	      }
+
+	      catch (IOException ex) {
+
+	        ex.printStackTrace();
+
+	      }
+
+	      finally {
+
+	        try {
+
+	          if (in != null) in.close();
+
+	          if (out != null) out.close();
+
+	        }
+
+	        catch (Exception ex) {}
+
+	      }
+
+	    }
+
+	 
+}

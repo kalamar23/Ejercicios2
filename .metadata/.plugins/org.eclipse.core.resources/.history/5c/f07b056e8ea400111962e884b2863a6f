@@ -1,0 +1,186 @@
+package recursion;
+
+//La siguiente clase realiza los procesos del programa , formando el backend de la aplicación
+import java.awt.Font;
+
+import javax.swing.SwingUtilities;
+import recursion.ContentPanel;
+
+public class Proceso {
+
+	private int[] num;
+	private int[] creciente;
+	private int[] decreciente;
+	
+	
+	int max = 0;
+	int min = 99999;
+	
+	
+	
+	static StringBuffer array = new StringBuffer();
+	static StringBuffer cre = new StringBuffer();
+	static StringBuffer decre = new StringBuffer();
+
+	
+	
+	
+	Proceso(int[] copiado) {
+
+		this.num = copiado;
+		this.creciente = copiado;
+		this.decreciente = copiado;
+		visualizar();
+	}
+/*
+ * 
+ */
+	private void visualizar() {
+		short index = 0;
+
+		for (int va : num) {
+			if (index == 0)
+				array.append(("|" + String.valueOf(va) + "|"));
+			else
+				array.append((String.valueOf(va) + "|"));
+
+			index++;
+		}
+		
+		creciente(creciente.length - 1,0,0);
+		decreciente(decreciente.length - 1,0,0);
+
+		actualizar();
+
+	}
+
+	
+	public void extremos(){
+		
+		
+		
+		for(int va : num){
+			
+			if(va > max){
+				max = va;
+			}
+			
+			if(va < min){
+				
+				min = va;
+			}
+			
+			
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	public void actualizar(){
+	
+		try {
+			SwingUtilities.invokeLater(new Runnable() {
+				public void run() {
+
+					
+					
+					
+					Font fuente = new Font("ARIAL", Font.PLAIN, 20);
+					
+					ContentPanel.display1.setFont(fuente);
+					ContentPanel.display1.setText(String.valueOf(array));
+					ContentPanel.display1.setBounds(110, 110, 300, 40);
+					
+					ContentPanel.display2.setFont(fuente);
+					ContentPanel.display2.setText(String.valueOf(decre));
+					ContentPanel.display2.setBounds(50, 255, 300, 40);
+					
+					ContentPanel.display3.setFont(fuente);
+					ContentPanel.display3.setText(String.valueOf(cre));
+					ContentPanel.display3.setBounds(50, 460, 300, 40);
+					
+				}
+
+			});
+
+			java.lang.Thread.sleep(100);
+		} catch (InterruptedException em) {
+				
+			em.printStackTrace();
+		}		
+	}
+	
+
+/** Metodo que ordena array de forma creciente de forma recursiva
+ * 	
+ * @param w Longitud del array
+ * @param x 
+ * @param y
+ */
+	
+	private void creciente(int w, int x, int y) {
+
+		if(x == w) mostrar(creciente, cre);	
+		else {
+			
+			if(creciente[x] > creciente[y]){
+			
+				int aux = creciente[x];
+				creciente[x] = creciente[y];
+				creciente[y] = aux;
+				
+			}
+			
+			if(y < w)
+				creciente(w,x,y + 1);
+			else
+				creciente(w,x + 1, x + 2);			
+		}
+
+	}
+
+	private void decreciente(int w, int x, int y) {
+
+		if(x == w) mostrar(decreciente, decre);
+		else {
+			
+			if(decreciente[x] < decreciente[y]){
+			
+				int aux = decreciente[x];
+				decreciente[x] = decreciente[y];
+				decreciente[y] = aux;
+				
+			}
+			
+			if(y < w)
+				decreciente(w,x,y + 1);
+			else
+				decreciente(w,x + 1, x + 2);			
+		}
+
+	}
+
+	public void mostrar(int[] dis, StringBuffer orde){
+		
+		int index = 0;
+
+		for (int va : dis) {
+			if (index == 0)
+				orde.append(("|" + String.valueOf(va) + "|"));
+			else
+				orde.append((String.valueOf(va) + "|"));
+			index++;
+		}
+		actualizar();
+	}	
+		
+	}
+	
+	
+	
+

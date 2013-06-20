@@ -1,0 +1,109 @@
+import java.awt.event.WindowAdapter;
+
+import javax.swing.*;
+
+public class ColaJava extends JFrame {
+    static Cola accion=new Cola();
+   
+ // Constructor   
+    ColaJava(){
+    	
+    }
+ // metodo de escucha a cierre de ventana    
+    public void close(){
+    	
+    	addWindowListener(new WindowAdapter(){
+    		
+    		
+    		
+    		
+    		
+    	});
+    	
+    	
+    	
+    }
+    
+    
+    public static void main(String[] args) {
+    	int opc=0;
+    	while(true){
+    		opc=Integer.parseInt(JOptionPane.showInputDialog(null,
+    		"---------------------------------------\n" +
+    		"Cola en Java\n"						    +
+    		"---------------------------------------\n" +
+    		"1. Introducir dato\n"						+
+    		"2. Sacar dato\n"							+
+    		"3. Ver datos introducidos\n"				+
+    		"4. Borrar los datos de la cola\n"			+
+    		"---------------------------------------\n" +
+    		"5. Salir\n"								+
+    		"---------------------------------------\n" +
+    		"Teclea el numero de la accion a relizar:"
+    		));
+    			switch(opc){
+			case 1:	accion.Introducir();
+			break;
+			case 2: accion.Sacar();
+			break;
+			case 3: accion.Mostrar();
+		    break;
+		    case 4: accion.Borrar();
+		    break;
+		    case 5: System.exit(0);
+		    break;
+		    default: JOptionPane.showMessageDialog(null,"No se realizo ninguna accion\nOpcion no valida");
+			break;
+			}
+    	}
+    }
+}
+class Cola{
+	int tamaño=5;
+	String cola[]=new String [tamaño];
+	int frente=0;
+	int ultimo=-1;
+	public void Introducir(){
+		if(ultimo==cola.length-1){
+			JOptionPane.showMessageDialog(null,"No se realizo ninguna accion");
+			JOptionPane.showMessageDialog(null,"La cola esta llena\nSaca un dato para poder introducir uno nuevo");
+		}
+		else{
+			ultimo++;
+			cola[ultimo]=JOptionPane.showInputDialog(null,"Que dato deseas introducir:");
+		}
+	}
+	public void Sacar(){
+		if(ultimo==-1){
+			JOptionPane.showMessageDialog(null,"No se realizo ninguna accion");
+			JOptionPane.showMessageDialog(null,"La cola esta vacia\nIntroduce un nuevo dato para poder sacar uno");
+		}
+		else{
+			JOptionPane.showMessageDialog(null,"Se saco el dato ( "+cola[frente]+" )");
+			for(int i=frente;i<ultimo;i++){
+				cola[i]=cola[i+1];
+			}
+			cola[ultimo]=null;
+			ultimo--;
+		}
+	}
+	public void Mostrar(){
+	if(ultimo==-1){
+			JOptionPane.showMessageDialog(null,"La cola esta vacia\nNo hay datos que mostrar");
+	}
+		else{
+			String mostrar="";
+			for(int i=frente;i<=ultimo;i++){
+				mostrar=mostrar+cola[i];
+			}
+			JOptionPane.showMessageDialog(null,"El dato frente es: "+cola[frente]);
+			JOptionPane.showMessageDialog(null,"El dato ultimo es: "+cola[ultimo]);
+			JOptionPane.showMessageDialog(null,"Los datos almacenados son:\n"+mostrar);
+		}
+	}
+	public void Borrar(){
+		frente=0;
+		ultimo=-1;
+		JOptionPane.showMessageDialog(null,"Todos los datos fueron borrados:\n");
+	}
+}

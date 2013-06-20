@@ -1,0 +1,53 @@
+import java.util.*;
+
+public class Recursivo4 {
+	
+	static int[] arre = new int[5];
+
+	
+	
+	static int minimum(int[] ar, int index) {
+		if(index == ar.length-1)return -1;
+		else 
+		{
+		int i = minimum(ar, ++index);
+		if(i < 0)return ar[index];
+		else if(ar[index] < i)return ar[index];
+		else return i;
+		
+		} 
+		}
+	
+
+	// Ordenar un vector de enteros de menor a mayor, de forma recursiva 
+	
+	
+	public static int orden(int[] arr, int index){
+		Random ra = new Random();
+
+		if(index == arr.length -1) return -1;
+		
+		else{
+			int i = orden(arr , ++index);
+			if(i > 0)
+			arr[index] = ra.nextInt(98); 
+			return 0;
+		}		
+	}
+	
+	
+
+	
+static public void main(String[] args) {
+orden(arre, 0);
+
+for(int i : arre){
+	
+	System.out.println("Array : " + i);
+	
+}
+
+
+}
+
+}

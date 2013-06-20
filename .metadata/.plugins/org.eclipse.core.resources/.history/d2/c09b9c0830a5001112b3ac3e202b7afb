@@ -1,0 +1,48 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Collections;
+import java.util.List;
+import java.util.ArrayList;
+
+public class Hilos {
+
+	String[] nombres = {"Claudio Barraza", "Esteban Abdala", "Ivonne Yañez", "Franco Catrin"};
+
+	public void colec(){
+		
+		List <String> cola = new ArrayList<String>();
+
+	
+		for(String va : nombres ){
+
+	
+	
+			cola.add(va);
+		}
+
+	
+	
+		for(String va : cola){
+		
+		
+	}
+	
+	
+	
+	}
+	
+	
+	
+	
+	public static void main(String[] args) {
+
+		
+		Hilos hi = new Hilos();
+		
+		hi.colec();
+		
+		
+		
+	}
+
+}

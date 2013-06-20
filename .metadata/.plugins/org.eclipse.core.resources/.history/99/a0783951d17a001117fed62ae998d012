@@ -1,0 +1,33 @@
+import javax.swing.*;
+import java.awt.*;
+public class Barra  {
+
+
+	
+	public static void main(String[] args){
+		final int MAX = 100;
+		final JFrame frame = new JFrame("Barra de progreso");
+		// crear barra
+		final JProgressBar pb = new JProgressBar();
+		
+		pb.setMinimum(0);
+		pb.setMaximum(MAX);
+		pb.setStringPainted(true);
+		
+		// agregar barra
+frame.setLayout(new FlowLayout());		
+frame.getContentPane().add(pb);
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+frame.setSize(400, 300);
+frame.setVisible(true);
+		
+
+
+	}
+	
+	
+	
+	
+	
+	
+}

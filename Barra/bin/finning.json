@@ -1,0 +1,22 @@
+{"Finning": {"Bodega": [
+    {
+        "Camion": "CAT-705",
+        "Tipo": "Extracción",
+        "Valor": "4.5MillionUSD",
+        "Opcion": [
+            {"boton1": "Guardar"},
+            {"boton2": "Abrir"},
+            {"boton3": "Cerrar"}
+        ]
+    },
+    {
+        "Camion": "CAT-405",
+        "Tipo": "Pala",
+        "Valor": "1.5MillionUSD",
+        "Opcion": [
+            {"boton1": "Guardar"},
+            {"boton2": "Abrir"},
+            {"boton3": "Cerrar"}
+        ]
+    }
+]}}
